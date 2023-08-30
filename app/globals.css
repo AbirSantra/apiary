@@ -79,4 +79,8 @@ body,
   body {
     @apply bg-background text-foreground;
   }
+
+  .padding-x {
+    @apply px-4 sm:px-8;
+  }
 }
