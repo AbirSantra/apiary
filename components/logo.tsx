@@ -10,7 +10,7 @@ const Logo = () => {
         <Image src={LogoImage} alt="Honey comb icon" fill />
       </div>
       <p className="text-base font-semibold">
-        <span className="text-indigo-600 dark:text-indigo-500">api</span>ary
+        <span className="text-indigo-500">api</span>ary
       </p>
     </div>
   );

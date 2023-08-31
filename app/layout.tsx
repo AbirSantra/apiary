@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={cn(
           font.className,
-          "bg-slate-100 dark:bg-slate-950 transition-all duration-300 ease-linear"
+          "bg-slate-100 dark:bg-slate-900 transition duration-200"
         )}
       >
         <ThemeProvider
