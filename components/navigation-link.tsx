@@ -11,9 +11,15 @@ interface NavigationLinkProps {
   name: string;
   url: string;
   icon: LucideIcon;
+  className?: string;
 }
 
-const NavigationLink = ({ name, url, icon: Icon }: NavigationLinkProps) => {
+const NavigationLink = ({
+  name,
+  url,
+  icon: Icon,
+  className,
+}: NavigationLinkProps) => {
   const pathname = usePathname();
   const isActive = pathname === url;
 
@@ -21,10 +27,11 @@ const NavigationLink = ({ name, url, icon: Icon }: NavigationLinkProps) => {
     <Link
       href={url}
       className={cn(
-        "text-sm flex justify-center items-center gap-1 transition duration-200",
+        "flex items-center justify-center gap-2 text-sm transition duration-200",
         isActive
-          ? "text-indigo-500 font-bold"
-          : "text-slate-400 font-medium hover:text-indigo-500"
+          ? "font-bold text-indigo-500"
+          : "font-medium text-slate-400 hover:text-indigo-500",
+        className,
       )}
     >
       <Icon className="w-4" />

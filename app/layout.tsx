@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={cn(
           font.className,
-          "bg-slate-100 dark:bg-slate-900 transition duration-200"
+          "bg-slate-100 antialiased transition duration-200 dark:bg-slate-900",
         )}
       >
         <ThemeProvider
@@ -36,6 +36,7 @@ export default function RootLayout({
             <Navbar />
           </header>
           <main>{children}</main>
+          <footer>Footer</footer>
         </ThemeProvider>
       </body>
     </html>

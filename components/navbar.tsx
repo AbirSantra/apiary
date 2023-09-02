@@ -7,6 +7,7 @@ import { ModeToggle } from "./theme-toggle";
 import Logo from "./logo";
 import NavigationLink from "./navigation-link";
 import { BadgeIndianRupee, CloudSun, Home } from "lucide-react";
+import MobileSidebar from "./mobile-sidebar";
 
 const navLinks = [
   { name: "Home", url: "/", icon: Home },
@@ -16,25 +17,22 @@ const navLinks = [
 
 const Navbar = () => {
   return (
-    <nav className="w-full h-16 padding-x flex items-center justify-between bg-white dark:bg-slate-800 transition duration-200">
-      <div className="flex items-center gap-16">
-        <Link href={"/"}>
-          <Logo />
-        </Link>
-        <div className="flex gap-8">
-          {navLinks.map((link) => (
-            <div key={link.name}>
-              <NavigationLink
-                name={link.name}
-                url={link.url}
-                icon={link.icon}
-              />
-            </div>
-          ))}
-        </div>
+    <nav className="padding-x flex h-16 w-full items-center justify-between bg-white transition duration-200 dark:bg-slate-800">
+      <Link href={"/"}>
+        <Logo />
+      </Link>
+      <div className="hidden gap-8 sm:flex">
+        {navLinks.map((link) => (
+          <div key={link.name}>
+            <NavigationLink name={link.name} url={link.url} icon={link.icon} />
+          </div>
+        ))}
       </div>
-      <div>
+      <div className="flex items-center justify-center gap-4">
         <ModeToggle />
+        <div className="sm:hidden">
+          <MobileSidebar navLinks={navLinks} />
+        </div>
       </div>
     </nav>
   );
