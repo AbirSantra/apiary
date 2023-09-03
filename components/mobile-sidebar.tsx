@@ -51,7 +51,7 @@ const MobileSidebar = ({ navLinks }: MobileSidebarProps) => {
         </SheetHeader>
         <div className="mt-8 flex flex-col items-start justify-start gap-6">
           {navLinks.map((link) => (
-            <SheetClose asChild key={link.name}>
+            <SheetClose key={link.name} asChild>
               <NavigationLink
                 name={link.name}
                 url={link.url}
