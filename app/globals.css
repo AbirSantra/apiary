@@ -81,6 +81,10 @@ body,
   }
 
   .padding-x {
-    @apply px-4 sm:px-8;
+    @apply px-4;
+  }
+
+  .padding-y {
+    @apply py-4;
   }
 }
