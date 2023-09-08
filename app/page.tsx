@@ -1,4 +1,5 @@
 import NewsSection from "@/components/news-section";
+import WeatherSection from "@/components/weather-section";
 
 export default function Home() {
   return (
@@ -8,8 +9,8 @@ export default function Home() {
         <NewsSection />
       </section>
       {/* Side Section */}
-      <section className=" hidden bg-white md:flex md:max-h-[calc(100dvh-6rem)]">
-        <div>Weather</div>
+      <section className=" hidden md:flex md:max-h-[calc(100dvh-6rem)] md:flex-col md:gap-4">
+        <WeatherSection />
         <div>Currency</div>
       </section>
     </div>
