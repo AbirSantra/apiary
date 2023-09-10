@@ -26,6 +26,7 @@ interface MobileSidebarProps {
 
 const MobileSidebar = ({ navLinks }: MobileSidebarProps) => {
   const [isMounted, setIsMounted] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false);
 
   React.useEffect(() => {
     setIsMounted(true);
@@ -36,7 +37,7 @@ const MobileSidebar = ({ navLinks }: MobileSidebarProps) => {
   }
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger>
         <Button variant={"ghost"} size={"icon"}>
           <Menu />
@@ -57,6 +58,7 @@ const MobileSidebar = ({ navLinks }: MobileSidebarProps) => {
                 url={link.url}
                 icon={link.icon}
                 className="text-base"
+                onOpenChange={setIsOpen}
               />
             </SheetClose>
           ))}

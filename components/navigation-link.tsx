@@ -12,6 +12,7 @@ interface NavigationLinkProps {
   url: string;
   icon: LucideIcon;
   className?: string;
+  onOpenChange?: (open: boolean) => void;
 }
 
 const NavigationLink = ({
@@ -19,6 +20,7 @@ const NavigationLink = ({
   url,
   icon: Icon,
   className,
+  onOpenChange,
 }: NavigationLinkProps) => {
   const pathname = usePathname();
   const isActive = pathname === url;
@@ -26,6 +28,7 @@ const NavigationLink = ({
   return (
     <Link
       href={url}
+      onClick={() => onOpenChange?.(false)}
       className={cn(
         "flex items-center justify-center gap-2 text-sm transition duration-200",
         isActive
