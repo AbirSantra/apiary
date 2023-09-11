@@ -1,4 +1,4 @@
-export interface currentWeatherType {
+export interface CurrentWeatherType {
   dt: number;
   sunrise: number;
   sunset: number;
@@ -10,28 +10,28 @@ export interface currentWeatherType {
   wind_speed: number;
 }
 
-export interface weatherType {
+export interface WeatherType {
   id: number;
   main: string;
   description: string;
   icon: string;
 }
 
-export interface weatherResultType {
+export interface WeatherResultType {
   lat: number;
   lon: number;
   timezone: string;
-  current: currentWeatherType;
-  weather: weatherType[];
+  current: CurrentWeatherType;
+  weather: WeatherType[];
 }
 
-export interface weatherErrorType {
+export interface WeatherErrorType {
   cod: number;
   message: string;
   parameters: string[];
 }
 
-export interface locationType {
+export interface LocationType {
   lat: number;
   lon: number;
 }
