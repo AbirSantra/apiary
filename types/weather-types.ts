@@ -24,3 +24,14 @@ export interface weatherResultType {
   current: currentWeatherType;
   weather: weatherType[];
 }
+
+export interface weatherErrorType {
+  cod: number;
+  message: string;
+  parameters: string[];
+}
+
+export interface locationType {
+  lat: number;
+  lon: number;
+}
