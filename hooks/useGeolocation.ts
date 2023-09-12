@@ -1,15 +1,15 @@
 import React from "react";
 
 interface GeolocationDataType {
-  lat: number | null;
-  lon: number | null;
+  lat: number;
+  lon: number;
   error: string | null;
 }
 
 const useGeolocation = () => {
   const [geolocation, setGeolocation] = React.useState<GeolocationDataType>({
-    lat: null,
-    lon: null,
+    lat: 22.57,
+    lon: 88.37,
     error: null,
   });
 
