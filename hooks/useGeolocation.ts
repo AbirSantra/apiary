@@ -7,42 +7,35 @@ interface GeolocationDataType {
 }
 
 const useGeolocation = () => {
-  const [geolocation, setGeolocation] = React.useState<GeolocationDataType>({
-    lat: 22.57,
-    lon: 88.37,
-    error: null,
-  });
+  const [latitude, setLatitude] = React.useState<Number | null>(null);
+  const [longitude, setLongitude] = React.useState<Number | null>(null);
+  const [locationError, setLocationError] = React.useState<String | null>(null);
 
   React.useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setGeolocation({
-            lat: position.coords.latitude,
-            lon: position.coords.longitude,
-            error: null,
-          });
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
         },
         (error) => {
-          setGeolocation({
-            lat: 22.57,
-            lon: 88.37,
-            error:
-              "Geolocation not available. Showing results for default location: Kolkata, India",
-          });
+          setLatitude(22.57);
+          setLongitude(88.37);
+          setLocationError(
+            "Geolocation not available. Showing results for default location: Kolkata, India",
+          );
         },
       );
     } else {
-      setGeolocation({
-        lat: 22.57,
-        lon: 88.37,
-        error:
-          "Geolocation not available. Showing results for default location: Kolkata, India",
-      });
+      setLatitude(22.57);
+      setLongitude(88.37);
+      setLocationError(
+        "Geolocation not available. Showing results for default location: Kolkata, India",
+      );
     }
   }, []);
 
-  return geolocation;
+  return { latitude, locationError, longitude };
 };
 
 export default useGeolocation;
