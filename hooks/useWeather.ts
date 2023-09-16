@@ -1,29 +1,32 @@
 import React from "react";
 import axios from "axios";
-import {
-  LocationType,
-  WeatherErrorType,
-  WeatherResultType,
-} from "@/types/weather-types";
+import { WeatherErrorType, WeatherResultType } from "@/types/weather-types";
 
 const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_APPID;
 const BASE_URL = `https://api.openweathermap.org/data/2.5/weather`;
 
-const useWeather = (location: LocationType | null) => {
+const useWeather = ({
+  latitude,
+  longitude,
+}: {
+  latitude: Number | null;
+  longitude: Number | null;
+}) => {
   const [weatherData, setWeatherData] =
     React.useState<WeatherResultType | null>(null);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<WeatherErrorType | null>(null);
 
   React.useEffect(() => {
     const fetchWeather = async () => {
+      console.log("Fetching Data");
       setLoading(true);
 
       try {
         const response = await axios(BASE_URL, {
           params: {
-            lat: location?.lat,
-            lon: location?.lon,
+            lat: latitude,
+            lon: longitude,
             appid: API_KEY,
             units: "metric",
           },
@@ -37,8 +40,10 @@ const useWeather = (location: LocationType | null) => {
       }
     };
 
-    fetchWeather();
-  }, [location?.lat, location?.lon]);
+    if (latitude && longitude) {
+      fetchWeather();
+    }
+  }, [latitude, longitude]);
 
   return { weatherData, loading, error };
 };
