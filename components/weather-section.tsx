@@ -2,10 +2,12 @@
 
 import useGeolocation from "@/hooks/useGeolocation";
 import useWeather from "@/hooks/useWeather";
-import { MapPin } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import React from "react";
 import weatherIconMap from "@/constants/weather-icon-map";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface WeatherIconType {
   icon: string;
@@ -39,7 +41,7 @@ const WeatherSection = () => {
 
   return (
     <div className="relative flex w-full flex-col gap-4 rounded-lg bg-white p-6 dark:bg-slate-800">
-      <p className="text-sm font-semibold uppercase text-indigo-600">
+      <p className="text-sm font-semibold uppercase text-indigo-500">
         Weather Forecast
       </p>
       <div className="flex items-center gap-1 text-xs font-medium text-slate-400">
@@ -54,12 +56,23 @@ const WeatherSection = () => {
         </p>
         <p className="text-[2rem] leading-tight">°C</p>
       </div>
-      <p className="text-sm font-medium text-slate-400">
-        Feels like{" "}
-        {weatherData?.main.feels_like &&
-          Math.round(weatherData?.main.feels_like)}
-        °C
-      </p>
+      <div className="flex items-center justify-between">
+        <p className="text-sm font-medium text-slate-400">
+          Feels like{" "}
+          {weatherData?.main.feels_like &&
+            Math.round(weatherData?.main.feels_like)}
+          °C
+        </p>
+        <Button size={"sm"} asChild>
+          <Link
+            href="/weather"
+            className="flex w-fit items-center justify-center gap-2 rounded-full bg-indigo-500 px-6 text-xs hover:bg-indigo-700"
+          >
+            <span>Full Forecast</span>
+            <ArrowRight size={14} />
+          </Link>
+        </Button>
+      </div>
       <Image
         src={icon}
         alt={weatherData?.weather[0].description || "weather-icon"}
