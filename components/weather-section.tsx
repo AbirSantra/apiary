@@ -2,19 +2,15 @@
 
 import useGeolocation from "@/hooks/useGeolocation";
 import useWeather from "@/hooks/useWeather";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, LocateFixedIcon, MapPin } from "lucide-react";
 import React from "react";
 import weatherIconMap from "@/constants/weather-icon-map";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
-interface WeatherIconType {
-  icon: string;
-}
-
 const WeatherSection = () => {
-  const { latitude, longitude, locationError } = useGeolocation();
+  const { latitude, longitude, locationError, getCoords } = useGeolocation();
   console.log(`Lat: ${latitude}, Lon: ${longitude}, Error: ${locationError}`);
 
   const { weatherData, error, loading } = useWeather({ latitude, longitude });
@@ -44,8 +40,14 @@ const WeatherSection = () => {
       <p className="text-sm font-semibold uppercase text-indigo-500">
         Weather Forecast
       </p>
-      <div className="flex items-center gap-1 text-xs font-medium text-slate-400">
-        <MapPin size={16} />
+      <div className="flex items-center gap-2 text-xs font-medium text-slate-400">
+        <Button
+          size={"icon"}
+          className="h-6 w-6 bg-indigo-500 hover:bg-indigo-600"
+          onClick={getCoords}
+        >
+          <LocateFixedIcon size={16} />
+        </Button>
         <p>
           {weatherData?.name}, {weatherData?.sys.country}
         </p>
@@ -65,12 +67,13 @@ const WeatherSection = () => {
         </p>
         <Button
           size={"sm"}
-          className="rounded-full bg-indigo-500 px-4 text-xs hover:bg-indigo-700"
+          variant={"link"}
+          className=" text-xs text-slate-400"
           asChild
         >
           <Link
             href="/weather"
-            className="flex w-fit items-center justify-center gap-2 "
+            className="flex w-fit items-center justify-center gap-1 "
           >
             <span>Full Forecast</span>
             <ArrowRight size={14} />
