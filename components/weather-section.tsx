@@ -65,20 +65,14 @@ const WeatherSection = () => {
             Math.round(weatherData?.main.feels_like)}
           °C
         </p>
-        <Button
-          size={"sm"}
-          variant={"link"}
-          className=" text-xs text-slate-400"
-          asChild
+
+        <Link
+          href="/weather"
+          className="flex w-fit items-center justify-center gap-1 text-xs text-slate-400 hover:underline"
         >
-          <Link
-            href="/weather"
-            className="flex w-fit items-center justify-center gap-1 "
-          >
-            <span>Full Forecast</span>
-            <ArrowRight size={14} />
-          </Link>
-        </Button>
+          <span>Full Forecast</span>
+          <ArrowRight size={14} />
+        </Link>
       </div>
       <Image
         src={icon}
