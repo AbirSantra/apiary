@@ -63,10 +63,14 @@ const WeatherSection = () => {
             Math.round(weatherData?.main.feels_like)}
           °C
         </p>
-        <Button size={"sm"} asChild>
+        <Button
+          size={"sm"}
+          className="rounded-full bg-indigo-500 px-4 text-xs hover:bg-indigo-700"
+          asChild
+        >
           <Link
             href="/weather"
-            className="flex w-fit items-center justify-center gap-2 rounded-full bg-indigo-500 px-6 text-xs hover:bg-indigo-700"
+            className="flex w-fit items-center justify-center gap-2 "
           >
             <span>Full Forecast</span>
             <ArrowRight size={14} />
@@ -78,7 +82,7 @@ const WeatherSection = () => {
         alt={weatherData?.weather[0].description || "weather-icon"}
         height={80}
         width={80}
-        className="absolute right-8 top-8"
+        className="absolute right-6 top-6"
       />
     </div>
   );
