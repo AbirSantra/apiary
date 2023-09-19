@@ -1,19 +1,19 @@
 export interface NewsArticleType {
   source: {
-    id: null | String;
-    name: String;
+    id: null | string;
+    name: string;
   };
-  author: String;
-  title: String;
-  description: String;
-  url: String;
-  urlToImage: String;
-  publishedAt: String;
-  content: String;
+  author: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
 }
 
 export interface NewErrorType {
-  status: String;
-  code: String;
-  message: String;
+  status: string;
+  code: string;
+  message: string;
 }
