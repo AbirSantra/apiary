@@ -41,4 +41,19 @@ const NewsCard = ({ article }: { article: NewsArticleType }) => {
   );
 };
 
+export const NewsCardSkeleton = () => {
+  return (
+    <Card className=" duration-300 ease-in-out hover:border-indigo-500">
+      <CardContent className="h-full animate-pulse p-2">
+        <div className="flex flex-col gap-2">
+          <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-sm bg-slate-200"></div>
+          <p className="line-clamp-2 h-3 w-full rounded-md bg-slate-200 text-sm font-bold text-slate-900"></p>
+          <p className="line-clamp-2 h-3 w-5/6 rounded-md bg-slate-200 text-sm font-bold text-slate-900"></p>
+          <p className="h-4 w-3/4 justify-self-end rounded-md bg-slate-200 text-xs font-medium text-slate-400"></p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 export default NewsCard;

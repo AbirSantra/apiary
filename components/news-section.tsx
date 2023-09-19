@@ -2,9 +2,10 @@
 
 import React from "react";
 import moment from "moment";
-import NewsCard from "./news-card";
+import NewsCard, { NewsCardSkeleton } from "./news-card";
 import { ScrollArea } from "./ui/scroll-area";
 import useNews from "@/hooks/useNews";
+import { Card, CardContent } from "./ui/card";
 
 const NewsSection = () => {
   const { articles, loading, error } = useNews();
@@ -13,6 +14,7 @@ const NewsSection = () => {
 
   const day = moment().format("dddd").toUpperCase();
   const date = moment().format("MMM Do, YYYY");
+
   return (
     <div className="h-full w-full bg-white sm:rounded-lg">
       <ScrollArea className="h-full w-full">
@@ -29,9 +31,14 @@ const NewsSection = () => {
             TOP HEADLINES
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-            {articles.map((article, index) => (
-              <NewsCard key={index} article={article} />
-            ))}
+            {!loading &&
+              articles.map((article, index) => (
+                <NewsCard key={index} article={article} />
+              ))}
+            {loading &&
+              Array.from({ length: 4 }).map((element, index) => (
+                <NewsCardSkeleton key={index} />
+              ))}
           </div>
         </div>
       </ScrollArea>
