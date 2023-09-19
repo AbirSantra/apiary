@@ -19,17 +19,20 @@ const useNews = () => {
         const response = await axios(BASE_URL, {
           params: {
             category: "general",
+            language: "en",
             apiKey: API_KEY,
           },
         });
 
-        setArticles(response.data);
+        setArticles(response.data.articles);
         setLoading(false);
       } catch (error: any) {
         setError(error);
         setLoading(false);
       }
     };
+
+    fetchNews();
   }, []);
   return { articles, loading, error };
 };
