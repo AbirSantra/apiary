@@ -22,15 +22,20 @@ const WeatherSection = () => {
 
   if (loading) {
     return (
-      <div className="flex w-full flex-col gap-4 rounded-lg bg-white p-6 dark:bg-slate-800">
-        <p className="text-sm font-semibold uppercase text-indigo-600">
+      <div className="relative flex w-full flex-col gap-4 rounded-lg bg-white p-6 dark:bg-slate-800">
+        <p className="text-sm font-semibold uppercase text-indigo-500">
           Weather Forecast
         </p>
-        <div className="flex items-center gap-1 text-xs font-medium text-slate-400">
-          <p className="h-3 w-32 animate-pulse bg-slate-100"></p>
+        <div className="flex animate-pulse flex-col gap-4">
+          <div className="flex h-6 w-1/3 items-center gap-2 rounded-md bg-slate-200 text-xs font-medium text-slate-400"></div>
+          <div className="flex h-16 w-2/4 items-start rounded-md bg-slate-200 font-bold text-indigo-500"></div>
+          <div className="flex items-center justify-between">
+            <p className="h-5 w-1/4 rounded-md bg-slate-200 text-sm font-medium text-slate-400"></p>
+
+            <div className="h-4 w-1/4 rounded-md bg-slate-200 text-xs text-slate-400"></div>
+          </div>
+          <div className="absolute right-6 top-6 h-20 w-20 rounded-md bg-slate-200" />
         </div>
-        <div className="flex h-16 w-24 animate-pulse items-start bg-slate-100 font-bold text-indigo-500"></div>
-        <p className="h-5 w-32 animate-pulse bg-slate-100 text-sm font-medium text-slate-400"></p>
       </div>
     );
   }
