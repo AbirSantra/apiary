@@ -10,7 +10,7 @@ export default function Home() {
       </section>
       {/* Side Section */}
       <section className=" hidden md:flex md:max-h-[calc(100dvh-6rem)] md:flex-col md:gap-4">
-        {/* <WeatherSection /> */}
+        <WeatherSection />
         <div>Currency</div>
       </section>
     </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { NewsArticleType } from "@/types/news-types";
