@@ -38,7 +38,7 @@ const MobileSidebar = ({ navLinks }: MobileSidebarProps) => {
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Button variant={"ghost"} size={"icon"}>
           <Menu />
         </Button>
