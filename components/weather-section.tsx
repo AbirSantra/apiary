@@ -71,13 +71,15 @@ const WeatherSection = () => {
           °C
         </p>
 
-        <Link
-          href="/weather"
-          className="flex w-fit items-center justify-center gap-1 text-xs text-slate-400 hover:underline"
-        >
-          <span>Full Forecast</span>
-          <ArrowRight size={14} />
-        </Link>
+        <Button className="bg-indigo-500" asChild>
+          <Link
+            href="/currency"
+            className="flex h-fit w-fit items-center justify-center gap-1 self-end  text-xs text-white hover:bg-indigo-700"
+          >
+            <span>Full Forecast</span>
+            <ArrowRight size={14} />
+          </Link>
+        </Button>
       </div>
       <Image
         src={icon}
