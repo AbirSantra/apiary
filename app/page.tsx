@@ -1,3 +1,4 @@
+import CurrencySection from "@/components/currency-section";
 import NewsSection from "@/components/news-section";
 import WeatherSection from "@/components/weather-section";
 
@@ -11,7 +12,7 @@ export default function Home() {
       {/* Side Section */}
       <section className=" hidden md:flex md:max-h-[calc(100dvh-6rem)] md:flex-col md:gap-4">
         <WeatherSection />
-        <div>Currency</div>
+        <CurrencySection />
       </section>
     </div>
   );
