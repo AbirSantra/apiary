@@ -26,15 +26,23 @@ const WeatherSection = () => {
         <p className="text-sm font-semibold uppercase text-indigo-500">
           Weather Forecast
         </p>
-        <div className="flex animate-pulse flex-col gap-4">
-          <div className="flex h-6 w-1/3 items-center gap-2 rounded-md bg-slate-200 text-xs font-medium text-slate-400"></div>
-          <div className="flex h-16 w-2/4 items-start rounded-md bg-slate-200 font-bold text-indigo-500"></div>
+        <div className="flex flex-col gap-4">
+          <div className="flex h-6 w-1/3 animate-pulse items-center gap-2 rounded-md bg-slate-200 text-xs font-medium text-slate-400"></div>
+          <div className="flex h-16 w-2/4 animate-pulse items-start rounded-md bg-slate-200 font-bold text-indigo-500"></div>
           <div className="flex items-center justify-between">
-            <p className="h-5 w-1/4 rounded-md bg-slate-200 text-sm font-medium text-slate-400"></p>
+            <p className="h-5 w-1/4 animate-pulse rounded-md bg-slate-200 text-sm font-medium text-slate-400"></p>
 
-            <div className="h-4 w-1/4 rounded-md bg-slate-200 text-xs text-slate-400"></div>
+            <Button className="bg-indigo-500" asChild>
+              <Link
+                href="/currency"
+                className="flex h-fit w-fit items-center justify-center gap-1 self-end  text-xs text-white hover:bg-indigo-700"
+              >
+                <span>Full Forecast</span>
+                <ArrowRight size={14} />
+              </Link>
+            </Button>
           </div>
-          <div className="absolute right-6 top-6 h-20 w-20 rounded-md bg-slate-200" />
+          <div className="absolute right-6 top-6 h-20 w-20 animate-pulse rounded-md bg-slate-200" />
         </div>
       </div>
     );
