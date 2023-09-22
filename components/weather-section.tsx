@@ -32,10 +32,10 @@ const WeatherSection = () => {
           <div className="flex items-center justify-between">
             <p className="h-5 w-1/4 animate-pulse rounded-md bg-slate-200 text-sm font-medium text-slate-400"></p>
 
-            <Button className="bg-indigo-500" asChild>
+            <Button className="bg-indigo-500 hover:bg-indigo-700" asChild>
               <Link
-                href="/currency"
-                className="flex h-fit w-fit items-center justify-center gap-1 self-end  text-xs text-white hover:bg-indigo-700"
+                href="/weather"
+                className="flex h-fit w-fit items-center justify-center gap-1 self-end  text-xs text-white"
               >
                 <span>Full Forecast</span>
                 <ArrowRight size={14} />
@@ -79,10 +79,10 @@ const WeatherSection = () => {
           °C
         </p>
 
-        <Button className="bg-indigo-500" asChild>
+        <Button className="bg-indigo-500 hover:bg-indigo-700" asChild>
           <Link
-            href="/currency"
-            className="flex h-fit w-fit items-center justify-center gap-1 self-end  text-xs text-white hover:bg-indigo-700"
+            href="/weather"
+            className="flex h-fit w-fit items-center justify-center gap-1 self-end  text-xs text-white"
           >
             <span>Full Forecast</span>
             <ArrowRight size={14} />
