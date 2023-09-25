@@ -1,59 +1,77 @@
+import axios from "axios";
 import React from "react";
 
-interface GeolocationDataType {
-  lat: number;
-  lon: number;
-  error: string | null;
-}
+const GEOCODING_URL = `http://api.openweathermap.org/geo/1.0/reverse`;
+const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_APPID;
 
 const useGeolocation = () => {
-  const [latitude, setLatitude] = React.useState<Number | null>(null);
-  const [longitude, setLongitude] = React.useState<Number | null>(null);
+  const [city, setCity] = React.useState<string | null>(null);
   const [locationError, setLocationError] = React.useState<String | null>(null);
 
   React.useEffect(() => {
-    if (localStorage.getItem("coords")) {
-      setLatitude(
-        JSON.parse(localStorage.getItem("coords") as string).latitude,
-      );
-      setLongitude(
-        JSON.parse(localStorage.getItem("coords") as string).longitude,
-      );
+    const savedCity = localStorage.getItem("user-city");
+    if (savedCity) {
+      setCity(savedCity);
     } else {
-      setLatitude(22.57);
-      setLongitude(88.37);
-      setLocationError(
-        "Geolocation not available. Showing results for default location: Kolkata, India",
-      );
+      setCity("Kolkata");
     }
   }, []);
 
-  const getCoords = () => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-          localStorage.setItem(
-            "coords",
-            JSON.stringify({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            }),
-          );
+  /* Find city for coordinates */
+  const getCityName = async ({ lat, lon }: { lat: number; lon: number }) => {
+    try {
+      console.log(lat, lon);
+      const response = await axios(GEOCODING_URL, {
+        params: {
+          lat: lat,
+          lon: lon,
+          limit: 1,
+          appid: API_KEY,
         },
-        (error) => {
-          setLatitude(22.57);
-          setLongitude(88.37);
-          setLocationError(
-            "Geolocation not available. Showing results for default location: Kolkata, India",
-          );
-        },
-      );
+      });
+
+      const data = response.data[0];
+      setLocationError(null);
+      return data.name;
+    } catch (error) {
+      console.log(error);
+      return "Kolkata";
     }
   };
 
-  return { latitude, locationError, longitude, getCoords };
+  const getGeoLocation = async () => {
+    try {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const cityName = await getCityName({
+              lat: position.coords.latitude,
+              lon: position.coords.longitude,
+            });
+            setCity(cityName);
+            localStorage.setItem("user-city", cityName);
+            setLocationError(null);
+            console.log(cityName);
+          },
+          (error) => {
+            setLocationError(
+              "Geolocation not available. Showing results for default location: Kolkata, India",
+            );
+          },
+        );
+      } else {
+        setCity("Kolkata");
+        setLocationError(
+          "Geolocation not available. Showing results for default location: Kolkata, India",
+        );
+      }
+    } catch (error) {
+      console.log(error);
+      setCity("Howrah");
+    }
+  };
+
+  return { city, setCity, locationError, getGeoLocation };
 };
 
 export default useGeolocation;
