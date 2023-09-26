@@ -21,8 +21,8 @@ import { Button } from "./ui/button";
 const CurrencySection = () => {
   const [symbol, setSymbol] = React.useState<string>("INR");
   const { ratesData, loading, error } = useCurrency({ base: symbol });
-  console.log("Rates: ", ratesData);
-  console.log("Currency Error: ", error);
+  // console.log("Rates: ", ratesData);
+  // console.log("Currency Error: ", error);
 
   const onSymbolChange = (value: string) => {
     setSymbol(value);
@@ -92,7 +92,7 @@ const CurrencyCard = ({
   return (
     <div className="flex h-full w-full items-center justify-between text-xs">
       <div className="flex flex-col">
-        <p className="text-base font-bold">{symbol}</p>
+        <p className="text-sm font-bold">{symbol}</p>
         <p className="text-slate-500">
           {symbolCurrencyMap[symbol as keyof typeof symbolCurrencyMap]}
         </p>

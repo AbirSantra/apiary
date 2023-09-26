@@ -9,8 +9,8 @@ import { Card, CardContent } from "./ui/card";
 
 const NewsSection = () => {
   const { articles, loading, error } = useNews();
-  console.log("Articles: ", articles);
-  console.log("Error: ", error);
+  // console.log("Articles: ", articles);
+  // console.log("Error: ", error);
 
   const day = moment().format("dddd").toUpperCase();
   const date = moment().format("MMM Do, YYYY");
@@ -35,7 +35,7 @@ const NewsSection = () => {
               <NewsCard key={index} article={article} />
             ))}
           {loading &&
-            Array.from({ length: 4 }).map((element, index) => (
+            Array.from({ length: 20 }).map((element, index) => (
               <NewsCardSkeleton key={index} />
             ))}
         </div>
