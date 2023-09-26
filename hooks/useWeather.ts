@@ -5,13 +5,7 @@ import { WeatherErrorType, WeatherResultType } from "@/types/weather-types";
 const API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_APPID;
 const BASE_URL = `https://api.openweathermap.org/data/2.5/weather`;
 
-const useWeather = ({
-  latitude,
-  longitude,
-}: {
-  latitude: Number | null;
-  longitude: Number | null;
-}) => {
+const useWeather = ({ city }: { city: string | null }) => {
   const [weatherData, setWeatherData] =
     React.useState<WeatherResultType | null>(null);
   const [loading, setLoading] = React.useState(true);
@@ -25,8 +19,7 @@ const useWeather = ({
       try {
         const response = await axios(BASE_URL, {
           params: {
-            lat: latitude,
-            lon: longitude,
+            q: city,
             appid: API_KEY,
             units: "metric",
           },
@@ -40,10 +33,10 @@ const useWeather = ({
       }
     };
 
-    if (latitude && longitude) {
+    if (city) {
       fetchWeather();
     }
-  }, [latitude, longitude]);
+  }, [city]);
 
   return { weatherData, loading, error };
 };
