@@ -10,10 +10,11 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 
 const WeatherSection = () => {
-  const { latitude, longitude, locationError, getCoords } = useGeolocation();
-  console.log(`Lat: ${latitude}, Lon: ${longitude}, Error: ${locationError}`);
+  const { city, getGeoLocation, locationError } = useGeolocation();
+  console.log(`City: ${city}`);
+  console.log("Location error: ", locationError);
 
-  const { weatherData, error, loading } = useWeather({ latitude, longitude });
+  const { weatherData, error, loading } = useWeather({ city: city });
   console.log("WeatherData: ", weatherData);
   console.log("Error: ", error);
 
@@ -57,7 +58,7 @@ const WeatherSection = () => {
         <Button
           size={"icon"}
           className="h-6 w-6 bg-indigo-500 hover:bg-indigo-600"
-          onClick={getCoords}
+          onClick={getGeoLocation}
         >
           <LocateFixedIcon size={16} />
         </Button>
