@@ -7,7 +7,6 @@ export const symbolCurrencyMap = {
   CNY: "Chinese Yuan",
   GBP: "British Pound Sterling",
   JPY: "Japanese Yen",
-  SGD: "Singapore Dollar",
 };
 
 export const currencyList = [
@@ -19,5 +18,4 @@ export const currencyList = [
   "CNY",
   "GBP",
   "JPY",
-  "SGD",
 ];
