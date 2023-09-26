@@ -32,10 +32,12 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="apiary-theme"
         >
-          <header>
-            <Navbar />
-          </header>
-          <main>{children}</main>
+          <main>
+            <header className="sticky top-0 z-50">
+              <Navbar />
+            </header>
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
