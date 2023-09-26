@@ -46,6 +46,18 @@ export interface WeatherResultType {
   cod: number;
 }
 
+export interface DailyWeatherType {
+  dt: number;
+  temp: {
+    min: number;
+    max: number;
+  };
+  weather: {
+    main: string;
+    icon: string;
+  }[];
+}
+
 export interface WeatherErrorType {
   cod: number;
   message: string;
