@@ -51,7 +51,6 @@ const useGeolocation = () => {
             setCity(cityName);
             localStorage.setItem("user-city", cityName);
             setLocationError(null);
-            console.log(cityName);
           },
           (error) => {
             setLocationError(

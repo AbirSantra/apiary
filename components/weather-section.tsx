@@ -11,12 +11,12 @@ import Link from "next/link";
 
 const WeatherSection = () => {
   const { city, getGeoLocation, locationError } = useGeolocation();
-  console.log(`City: ${city}`);
-  console.log("Location error: ", locationError);
+  // console.log(`City: ${city}`);
+  // console.log("Location error: ", locationError);
 
   const { weatherData, error, loading } = useWeather({ city: city });
-  console.log("WeatherData: ", weatherData);
-  console.log("Error: ", error);
+  // console.log("WeatherData: ", weatherData);
+  // console.log("Error: ", error);
 
   const icon =
     weatherIconMap[weatherData?.weather[0].icon as keyof typeof weatherIconMap];

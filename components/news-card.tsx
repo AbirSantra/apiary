@@ -22,7 +22,7 @@ const NewsCard = ({ article }: { article: NewsArticleType }) => {
             {article.urlToImage ? (
               <Image
                 src={article.urlToImage}
-                alt={article.description}
+                alt={article.description || article.title}
                 fill={true}
                 sizes="30rem"
               />
