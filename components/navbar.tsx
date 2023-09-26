@@ -17,7 +17,7 @@ const navLinks = [
 
 const Navbar = () => {
   return (
-    <nav className="padding-x flex h-16 w-full items-center justify-between bg-white transition duration-200 dark:bg-slate-800">
+    <nav className="padding-x flex h-16 w-full items-center justify-between bg-white shadow-sm transition duration-200 dark:bg-slate-800">
       <Link href={"/"}>
         <Logo />
       </Link>
