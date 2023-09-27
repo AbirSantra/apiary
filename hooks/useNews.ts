@@ -2,7 +2,7 @@ import React from "react";
 import { NewErrorType, NewsArticleType } from "@/types/news-types";
 import axios from "axios";
 
-const BASE_URL = `https://newsapi.org/v2/top-headlines`;
+const BASE_URL = `https://newsdata.io/api/1/news`;
 const API_KEY = process.env.NEXT_PUBLIC_NEWSAPI_APPID;
 
 const useNews = () => {
@@ -18,13 +18,14 @@ const useNews = () => {
       try {
         const response = await axios(BASE_URL, {
           params: {
-            category: "general",
+            category: "world",
             language: "en",
             apiKey: API_KEY,
+            image: "1",
           },
         });
 
-        setArticles(response.data.articles);
+        setArticles(response.data.results);
         setLoading(false);
       } catch (error: any) {
         setError(error);

@@ -8,20 +8,20 @@ import moment from "moment";
 import Link from "next/link";
 
 const NewsCard = ({ article }: { article: NewsArticleType }) => {
-  const publishTime = moment(article.publishedAt).fromNow();
+  const publishTime = moment(article.pubDate).fromNow();
 
   return (
     <Card className=" duration-300 ease-in-out hover:border-indigo-500">
       <CardContent className="h-full p-2">
         <Link
-          href={article.url}
-          className="flex flex-col gap-2"
+          href={article.link}
+          className="flex h-full flex-col gap-2"
           target="_blank"
         >
           <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-sm bg-slate-200">
-            {article.urlToImage ? (
+            {article.image_url ? (
               <Image
-                src={article.urlToImage}
+                src={article.image_url}
                 alt={article.description || article.title}
                 fill={true}
                 sizes="30rem"
@@ -33,9 +33,11 @@ const NewsCard = ({ article }: { article: NewsArticleType }) => {
           <p className="line-clamp-2 text-sm font-bold text-slate-900">
             {article.title}
           </p>
-          <p className="justify-self-end text-xs font-medium text-slate-400">
-            <span className="text-indigo-500">{article.source.name}</span> |
-            Published {publishTime}
+          <p className="mt-auto justify-self-end text-xs font-medium text-slate-400">
+            <span className="capitalize text-indigo-500">
+              {article.source_id}
+            </span>{" "}
+            | {publishTime}
           </p>
         </Link>
       </CardContent>

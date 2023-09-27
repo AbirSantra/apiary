@@ -1,15 +1,19 @@
 export interface NewsArticleType {
-  source: {
-    id: null | string;
-    name: string;
-  };
-  author: string;
+  article_id: string;
   title: string;
+  link: string;
+  keywords: string[];
+  creator: string[];
+  video_url: string | null;
   description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
   content: string;
+  pubDate: string;
+  image_url: string | null;
+  source_id: string;
+  source_priority: number;
+  country: string[];
+  category: string[];
+  language: string;
 }
 
 export interface NewErrorType {
