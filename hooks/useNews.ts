@@ -18,7 +18,7 @@ const useNews = () => {
       try {
         const response = await axios(BASE_URL, {
           params: {
-            category: "world",
+            category: "technology",
             language: "en",
             apiKey: API_KEY,
             image: "1",
@@ -33,7 +33,7 @@ const useNews = () => {
       }
     };
 
-    fetchNews();
+    // fetchNews();
   }, []);
   return { articles, loading, error };
 };
