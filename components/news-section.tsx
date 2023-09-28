@@ -26,20 +26,18 @@ const NewsSection = () => {
         </p>
       </div>
       <p className="text-sm font-semibold uppercase text-indigo-500">
-        TOP HEADLINES
+        TOP TECH NEWS
       </p>
-      <ScrollArea className="h-full w-full pr-3">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-          {!loading &&
-            articles.map((article, index) => (
-              <NewsCard key={index} article={article} />
-            ))}
-          {loading &&
-            Array.from({ length: 20 }).map((element, index) => (
-              <NewsCardSkeleton key={index} />
-            ))}
-        </div>
-      </ScrollArea>
+      <div className="grid h-full w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        {!loading &&
+          articles.map((article, index) => (
+            <NewsCard key={index} article={article} />
+          ))}
+        {loading &&
+          Array.from({ length: 20 }).map((element, index) => (
+            <NewsCardSkeleton key={index} />
+          ))}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 "use client";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import WeatherDescCard from "@/components/weather-desc-card";
 import WeatherMainCard from "@/components/weather-main-card";
 import WeatherWeekCard from "@/components/weather-week-card";
@@ -19,19 +20,21 @@ const Weather = () => {
   // console.log("Error: ", error);
 
   return (
-    <div className="padding-x padding-y relative mx-auto  grid min-h-[calc(100dvh-4rem)] w-full max-w-[1440px] grid-cols-1 grid-rows-1 gap-4 md:grid-cols-[2fr_1fr]">
-      {/* Today's Weather */}
-      <div className="flex flex-col gap-4">
-        <WeatherMainCard
-          data={weatherData}
-          setCity={setCity}
-          loading={loading}
-        />
-        <WeatherDescCard data={weatherData} loading={loading} />
+    <ScrollArea className="h-full w-full">
+      <div className="padding-x padding-y relative mx-auto  grid h-[calc(100dvh-4rem)] w-full max-w-[1440px] grid-cols-1 gap-4 md:grid-cols-[2fr_1fr]">
+        {/* Today's Weather */}
+        <div className="flex flex-col gap-4">
+          <WeatherMainCard
+            data={weatherData}
+            setCity={setCity}
+            loading={loading}
+          />
+          <WeatherDescCard data={weatherData} loading={loading} />
+        </div>
+        {/* 5day forecast */}
+        <WeatherWeekCard data={dailyWeather} loading={loading} />
       </div>
-      {/* 5day forecast */}
-      <WeatherWeekCard data={dailyWeather} loading={loading} />
-    </div>
+    </ScrollArea>
   );
 };
 
