@@ -21,7 +21,7 @@ const Weather = () => {
 
   return (
     <ScrollArea className="h-full w-full">
-      <div className="padding-x padding-y relative mx-auto  grid h-[calc(100dvh-4rem)] w-full max-w-[1440px] grid-cols-1 gap-4 md:grid-cols-[2fr_1fr]">
+      <div className="padding-x padding-y relative mx-auto  grid h-[calc(100dvh-4rem)] w-full max-w-[1440px] grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
         {/* Today's Weather */}
         <div className="flex flex-col gap-4">
           <WeatherMainCard
