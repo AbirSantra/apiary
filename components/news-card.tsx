@@ -60,4 +60,19 @@ export const NewsCardSkeleton = () => {
   );
 };
 
+export const NewsCardLoadMore = ({ fetchMore }: { fetchMore: () => void }) => {
+  return (
+    <Card
+      className=" cursor-pointer duration-300 ease-in-out hover:border-indigo-500"
+      onClick={fetchMore}
+    >
+      <CardContent className="h-full p-2">
+        <div className="flex h-full w-full items-center justify-center text-slate-400">
+          Load More
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 export default NewsCard;

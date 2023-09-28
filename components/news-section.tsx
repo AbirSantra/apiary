@@ -2,13 +2,13 @@
 
 import React from "react";
 import moment from "moment";
-import NewsCard, { NewsCardSkeleton } from "./news-card";
+import NewsCard, { NewsCardLoadMore, NewsCardSkeleton } from "./news-card";
 import { ScrollArea } from "./ui/scroll-area";
 import useNews from "@/hooks/useNews";
 import { Card, CardContent } from "./ui/card";
 
 const NewsSection = () => {
-  const { articles, loading, error } = useNews();
+  const { articles, fetchMoreNews, loading, error } = useNews();
   // console.log("Articles: ", articles);
   // console.log("Error: ", error);
 
@@ -33,6 +33,9 @@ const NewsSection = () => {
           articles.map((article, index) => (
             <NewsCard key={index} article={article} />
           ))}
+        {!loading && articles.length !== 20 && (
+          <NewsCardLoadMore fetchMore={fetchMoreNews} />
+        )}
         {loading &&
           Array.from({ length: 20 }).map((element, index) => (
             <NewsCardSkeleton key={index} />

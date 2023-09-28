@@ -9,6 +9,7 @@ const useNews = () => {
   const [articles, setArticles] = React.useState<NewsArticleType[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<NewErrorType | null>(null);
+  const [nextPage, setNextPage] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const fetchNews = async () => {
@@ -26,6 +27,7 @@ const useNews = () => {
         });
 
         setArticles(response.data.results);
+        setNextPage(response.data.nextPage);
         setLoading(false);
       } catch (error: any) {
         setError(error);
@@ -33,9 +35,35 @@ const useNews = () => {
       }
     };
 
-    // fetchNews();
+    fetchNews();
   }, []);
-  return { articles, loading, error };
+
+  const fetchMoreNews = async () => {
+    try {
+      const response = await axios(BASE_URL, {
+        params: {
+          category: "technology",
+          language: "en",
+          apiKey: API_KEY,
+          image: "1",
+          page: nextPage,
+        },
+      });
+
+      const newArticles: NewsArticleType[] = [
+        ...articles,
+        ...response.data.results,
+      ];
+      setArticles(newArticles);
+      setNextPage(response.data.nextPage);
+      setLoading(false);
+    } catch (error: any) {
+      setError(error);
+      setLoading(false);
+    }
+  };
+
+  return { articles, fetchMoreNews, loading, error };
 };
 
 export default useNews;
