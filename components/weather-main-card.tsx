@@ -107,7 +107,9 @@ const WeatherMainCard = ({
               width={80}
               className="h-32 w-32 sm:h-16 sm:w-16"
             />
-            <p className=" text-slate-400">{data?.weather[0].main}</p>
+            <p className="capitalize text-slate-400">
+              {data?.weather[0].description}
+            </p>
           </div>
         </div>
         <div className="my-4 flex flex-col items-center justify-center sm:my-0 sm:items-end">
