@@ -33,7 +33,11 @@ const MobileSidebar = ({ navLinks }: MobileSidebarProps) => {
   }, []);
 
   if (!isMounted) {
-    return null;
+    return (
+      <Button variant={"ghost"} size={"icon"}>
+        <Menu />
+      </Button>
+    );
   }
 
   return (
