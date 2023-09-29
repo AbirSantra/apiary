@@ -20,12 +20,12 @@ import { Button } from "./ui/button";
 
 const CurrencySection = () => {
   const [symbol, setSymbol] = React.useState<string>("INR");
-  const { ratesData, loading, error } = useCurrency({ base: symbol });
+  const { ratesData, loading, error, base, setBase } = useCurrency();
   // console.log("Rates: ", ratesData);
   // console.log("Currency Error: ", error);
 
-  const onSymbolChange = (value: string) => {
-    setSymbol(value);
+  const onBaseChange = (value: string) => {
+    setBase(value);
   };
 
   return (
@@ -34,11 +34,7 @@ const CurrencySection = () => {
         <p className="text-sm font-semibold uppercase text-indigo-500">
           Exchange Rates
         </p>
-        <Select
-          value={symbol}
-          defaultValue={symbol}
-          onValueChange={onSymbolChange}
-        >
+        <Select value={base} defaultValue={base} onValueChange={onBaseChange}>
           <SelectTrigger className="flex h-fit w-fit items-center gap-2 border-none  p-0 text-xs font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0">
             <SelectValue />
           </SelectTrigger>

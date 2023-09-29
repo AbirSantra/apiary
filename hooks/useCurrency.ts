@@ -25,12 +25,17 @@ const convertRatesToBase = ({
   return ratesInBase;
 };
 
-const useCurrency = ({ base }: { base: string }) => {
+const useCurrency = () => {
   const [ratesData, setRatesData] = React.useState<CurrencyExchangeDataType>(
     {},
   );
+  const [base, setBase] = React.useState<string>("INR");
+  const [target, setTarget] = React.useState<string>("USD");
+  const [amount, setAmount] = React.useState<number>(1);
+  const [rate, setRate] = React.useState<number>();
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<CurrencyErrorType | null>(null);
+  const [baseChange, setBaseChange] = React.useState(true);
 
   React.useEffect(() => {
     const fetchRates = async () => {
@@ -62,7 +67,47 @@ const useCurrency = ({ base }: { base: string }) => {
     fetchRates();
   }, [base]);
 
-  return { ratesData, loading, error };
+  let baseValue, targetValue;
+  if (baseChange) {
+    targetValue = (amount * ratesData[target]).toFixed(3);
+    baseValue = amount;
+  } else {
+    baseValue = (amount / ratesData[target]).toFixed(3);
+    targetValue = amount;
+  }
+
+  const onBaseChange = (value: string) => {
+    setBase(value);
+  };
+
+  const onTargetChange = (value: string) => {
+    setTarget(value);
+  };
+
+  const onBaseValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(parseInt(e.target.value, 10));
+    setBaseChange(true);
+  };
+
+  const onTargetValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(parseInt(e.target.value, 10));
+    setBaseChange(false);
+  };
+
+  return {
+    ratesData,
+    loading,
+    error,
+    base,
+    setBase,
+    baseValue,
+    targetValue,
+    onTargetChange,
+    onBaseValueChange,
+    onTargetValueChange,
+    target,
+    onBaseChange,
+  };
 };
 
 export default useCurrency;
