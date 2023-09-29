@@ -16,7 +16,7 @@ const NewsSection = () => {
   const date = moment().format("MMM Do, YYYY");
 
   return (
-    <div className="flex h-full w-full flex-col gap-3 bg-white p-4 sm:gap-4 sm:rounded-lg sm:p-6">
+    <div className="flex h-full w-full flex-col gap-3 bg-white p-4 dark:bg-slate-800 sm:gap-4 sm:rounded-lg sm:p-6">
       <div className="flex items-center gap-2">
         <p className="font-bold capitalize text-indigo-500 sm:text-xl">
           {day}{" "}

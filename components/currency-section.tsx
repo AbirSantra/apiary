@@ -35,7 +35,7 @@ const CurrencySection = () => {
           Exchange Rates
         </p>
         <Select value={base} defaultValue={base} onValueChange={onBaseChange}>
-          <SelectTrigger className="flex h-fit w-fit items-center gap-2 border-none  p-0 text-xs font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+          <SelectTrigger className="flex h-fit w-fit items-center gap-2 border-none  p-0 text-xs font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:bg-slate-800">
             <SelectValue />
           </SelectTrigger>
           <SelectContent align="end">

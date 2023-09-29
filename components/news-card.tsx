@@ -11,7 +11,7 @@ const NewsCard = ({ article }: { article: NewsArticleType }) => {
   const publishTime = moment(article.pubDate).fromNow();
 
   return (
-    <Card className=" duration-300 ease-in-out hover:border-indigo-500">
+    <Card className=" bg-white duration-300 ease-in-out hover:border-indigo-500  dark:border-slate-700 dark:bg-slate-800 dark:hover:border-indigo-500">
       <CardContent className="h-full p-2">
         <Link
           href={article.link}
@@ -30,7 +30,7 @@ const NewsCard = ({ article }: { article: NewsArticleType }) => {
               <p className="text-xs text-slate-500">No image found</p>
             )}
           </div>
-          <p className="line-clamp-2 text-sm font-bold text-slate-900">
+          <p className="line-clamp-2 text-sm font-bold text-slate-900 dark:text-slate-50">
             {article.title}
           </p>
           <p className="mt-auto justify-self-end text-xs font-medium text-slate-400">
@@ -47,7 +47,7 @@ const NewsCard = ({ article }: { article: NewsArticleType }) => {
 
 export const NewsCardSkeleton = () => {
   return (
-    <Card className=" duration-300 ease-in-out hover:border-indigo-500">
+    <Card className=" duration-300 ease-in-out hover:border-indigo-500 dark:border-slate-700 dark:bg-slate-800">
       <CardContent className="h-full animate-pulse p-2">
         <div className="flex flex-col gap-2">
           <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-sm bg-slate-200"></div>
@@ -63,7 +63,7 @@ export const NewsCardSkeleton = () => {
 export const NewsCardLoadMore = ({ fetchMore }: { fetchMore: () => void }) => {
   return (
     <Card
-      className=" cursor-pointer duration-300 ease-in-out hover:border-indigo-500"
+      className=" cursor-pointer duration-300 ease-in-out hover:border-indigo-500 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-indigo-500"
       onClick={fetchMore}
     >
       <CardContent className="h-full p-2">

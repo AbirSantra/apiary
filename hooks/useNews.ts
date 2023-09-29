@@ -35,7 +35,7 @@ const useNews = () => {
       }
     };
 
-    fetchNews();
+    // fetchNews();
   }, []);
 
   const fetchMoreNews = async () => {
