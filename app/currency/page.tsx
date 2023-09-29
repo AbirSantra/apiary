@@ -4,7 +4,13 @@ import CurrencyMain from "@/components/currency-main";
 import CurrencyRates from "@/components/currency-rates";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import useCurrency from "@/hooks/useCurrency";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Apiary | Currency Converter",
+  description: "Convert currencies",
+};
 
 const Currency = () => {
   const {
