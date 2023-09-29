@@ -64,7 +64,7 @@ const useCurrency = () => {
       }
     };
 
-    fetchRates();
+    // fetchRates();
   }, [base]);
 
   let baseValue, targetValue;

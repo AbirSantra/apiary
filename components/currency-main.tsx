@@ -25,6 +25,7 @@ const CurrencyMain = ({
   onBaseValueChange,
   onTargetValueChange,
   ratesData,
+  loading,
 }: {
   base: string;
   baseValue: string | number;
@@ -35,6 +36,7 @@ const CurrencyMain = ({
   onBaseValueChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onTargetValueChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   ratesData: CurrencyExchangeDataType;
+  loading: boolean;
 }) => {
   return (
     <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-6">

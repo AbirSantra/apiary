@@ -32,6 +32,7 @@ const Currency = () => {
           onBaseValueChange={onBaseValueChange}
           onTargetValueChange={onTargetValueChange}
           ratesData={ratesData}
+          loading={loading}
         />
         <CurrencyRates ratesData={ratesData} loading={loading} />
       </div>

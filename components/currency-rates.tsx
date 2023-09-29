@@ -26,6 +26,10 @@ const CurrencyRates = ({
               key={index}
             />
           ))}
+        {loading &&
+          currencyList.map((currency, index) => (
+            <CurrencyCardSkeleton key={index} />
+          ))}
       </div>
     </div>
   );
@@ -47,6 +51,18 @@ const CurrencyCard = ({
         </p>
       </div>
       <p className="text-2xl font-light text-indigo-500">{rate.toFixed(3)}</p>
+    </div>
+  );
+};
+
+const CurrencyCardSkeleton = () => {
+  return (
+    <div className="flex h-full w-full animate-pulse items-center justify-between p-4 text-xs">
+      <div className="flex h-full w-full flex-col gap-1">
+        <p className="h-6 w-12 rounded-lg bg-slate-200 text-base font-bold"></p>
+        <p className="h-4 w-2/4 rounded-md bg-slate-200"></p>
+      </div>
+      <p className="h-6 w-16 rounded-lg bg-slate-200 text-base font-bold text-indigo-500"></p>
     </div>
   );
 };
