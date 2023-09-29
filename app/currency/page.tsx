@@ -7,10 +7,6 @@ import useCurrency from "@/hooks/useCurrency";
 import { Metadata } from "next";
 import React from "react";
 
-export const metadata: Metadata = {
-  title: "Apiary | Currency Converter",
-  description: "Convert currencies",
-};
 
 const Currency = () => {
   const {

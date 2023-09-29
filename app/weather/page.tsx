@@ -8,11 +8,6 @@ import useWeather from "@/hooks/useWeather";
 import { Metadata } from "next";
 import React from "react";
 
-export const metadata: Metadata = {
-  title: "Apiary | Weather",
-  description: "Get the current weather forecast",
-};
-
 const Weather = () => {
   const { city, setCity, locationError } = useGeolocation();
   // console.log("City Name: ", city);
