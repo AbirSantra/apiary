@@ -39,7 +39,7 @@ const CurrencyMain = ({
   loading: boolean;
 }) => {
   return (
-    <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-6">
+    <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-6 dark:bg-slate-800">
       <p className="text-sm font-semibold uppercase text-indigo-500">
         Currency Converter
       </p>
@@ -49,7 +49,7 @@ const CurrencyMain = ({
             FROM
           </p>
           <Select value={base} defaultValue={base} onValueChange={onBaseChange}>
-            <SelectTrigger className="flex h-fit items-center gap-4 text-base font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+            <SelectTrigger className="flex h-fit items-center gap-4 text-base font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:border-slate-700 dark:bg-slate-800">
               <SelectValue />
             </SelectTrigger>
             <SelectContent align="end">
@@ -64,7 +64,7 @@ const CurrencyMain = ({
           <Input
             type="number"
             placeholder="0.00"
-            className="focus-visible:ring-offset- h-fit border-none py-1 text-5xl font-light outline-none focus:outline-0 focus-visible:ring-0 sm:text-6xl"
+            className="focus-visible:ring-offset- h-fit border-none py-1 text-5xl font-light outline-none focus:outline-0 focus-visible:ring-0 dark:bg-slate-800 sm:text-6xl"
             value={baseValue}
             onChange={onBaseValueChange}
           />
@@ -78,7 +78,7 @@ const CurrencyMain = ({
             defaultValue={target}
             onValueChange={onTargetChange}
           >
-            <SelectTrigger className="flex h-fit items-center gap-4 text-base font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+            <SelectTrigger className="flex h-fit items-center gap-4 text-base font-medium text-slate-400 focus:outline-0 focus-visible:ring-0 focus-visible:ring-offset-0 dark:border-slate-700 dark:bg-slate-800">
               <SelectValue />
             </SelectTrigger>
             <SelectContent align="end">
@@ -93,7 +93,7 @@ const CurrencyMain = ({
           <Input
             type="number"
             placeholder="0.00"
-            className="focus-visible:ring-offset- h-fit border-none py-1 text-5xl font-light focus:outline-0 focus-visible:ring-0 sm:text-6xl"
+            className="focus-visible:ring-offset- h-fit border-none py-1 text-5xl font-light focus:outline-0 focus-visible:ring-0 dark:bg-slate-800 sm:text-6xl"
             value={targetValue}
             onChange={onTargetValueChange}
           />

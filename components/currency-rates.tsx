@@ -13,7 +13,7 @@ const CurrencyRates = ({
   loading: boolean;
 }) => {
   return (
-    <div className="flex h-full w-full flex-col gap-8 rounded-lg bg-white p-6">
+    <div className="flex h-full w-full flex-col gap-8 rounded-lg bg-white p-6 dark:bg-slate-800">
       <p className="text-sm font-semibold uppercase text-indigo-500">
         Other Rates
       </p>
@@ -43,7 +43,7 @@ const CurrencyCard = ({
   rate: number;
 }) => {
   return (
-    <div className="flex h-full w-full items-center justify-between rounded-md bg-slate-50 p-4 text-xs">
+    <div className="flex h-full w-full items-center justify-between rounded-md bg-slate-50 p-4 text-xs dark:border dark:border-slate-700 dark:bg-slate-800">
       <div className="flex flex-col">
         <p className="text-lg font-bold">{symbol}</p>
         <p className="text-slate-500">
@@ -57,7 +57,7 @@ const CurrencyCard = ({
 
 const CurrencyCardSkeleton = () => {
   return (
-    <div className="flex h-full w-full animate-pulse items-center justify-between p-4 text-xs">
+    <div className="flex h-full w-full animate-pulse items-center justify-between rounded-md p-4 text-xs dark:border dark:border-slate-700">
       <div className="flex h-full w-full flex-col gap-1">
         <p className="h-6 w-12 rounded-lg bg-slate-200 text-base font-bold"></p>
         <p className="h-4 w-2/4 rounded-md bg-slate-200"></p>
