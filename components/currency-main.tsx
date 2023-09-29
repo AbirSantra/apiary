@@ -37,7 +37,7 @@ const CurrencyMain = ({
   ratesData: CurrencyExchangeDataType;
 }) => {
   return (
-    <div className="flex w-full flex-col gap-8 rounded-lg bg-white p-6">
+    <div className="flex w-full flex-col gap-6 rounded-lg bg-white p-6">
       <p className="text-sm font-semibold uppercase text-indigo-500">
         Currency Converter
       </p>
@@ -97,11 +97,11 @@ const CurrencyMain = ({
           />
         </div>
       </div>
-      <div className="mt-4 flex flex-col justify-center gap-4">
+      <div className="my-4 flex flex-col justify-center gap-4">
         <p className="text-sm font-medium uppercase text-slate-400">
           Current Rate:{" "}
           <span className="text-sm text-indigo-500">
-            {ratesData[target].toFixed(3)}
+            {ratesData[target]?.toFixed(3)}
           </span>
         </p>
         <p className="text-2xl font-light text-slate-400">
