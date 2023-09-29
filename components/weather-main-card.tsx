@@ -44,7 +44,7 @@ const WeatherMainCard = ({
     return <WeatherMainCardSkeleton />;
   }
   return (
-    <div className="flex w-full flex-col gap-8 rounded-lg bg-white p-6">
+    <div className="flex w-full flex-col gap-8 rounded-lg bg-white p-6 dark:bg-slate-800">
       <div className="flex w-full  items-center justify-between gap-4 ">
         <p className="whitespace-nowrap text-sm font-semibold uppercase text-indigo-500">
           Current Forecast
@@ -88,7 +88,7 @@ const WeatherMainCard = ({
       </div>
       <div className="flex w-full flex-col items-center justify-between sm:flex-row">
         <div className="flex flex-col items-center gap-2 sm:items-start">
-          <p className="text-3xl font-bold text-slate-800">
+          <p className="text-3xl font-bold ">
             {data?.name}, {data?.sys.country}
           </p>
           <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ const WeatherMainCard = ({
 
 const WeatherMainCardSkeleton = () => {
   return (
-    <div className="flex w-full flex-col gap-8 rounded-lg bg-white p-6">
+    <div className="flex w-full flex-col gap-8 rounded-lg bg-white p-6 dark:bg-slate-800">
       <div className="flex w-full  items-center justify-between gap-4 ">
         <p className="whitespace-nowrap text-sm font-semibold uppercase text-indigo-500">
           Current Forecast

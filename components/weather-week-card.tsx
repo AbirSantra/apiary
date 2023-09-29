@@ -12,18 +12,18 @@ const WeatherWeekCard = ({
   loading: boolean;
 }) => {
   return (
-    <div className="flex h-full flex-col gap-6 rounded-lg bg-white p-6">
+    <div className="flex h-full flex-col gap-6 rounded-lg bg-white p-6 dark:bg-slate-800">
       <p className="text-sm font-semibold uppercase text-indigo-500">
         7-day Forecast
       </p>
       {loading ? (
-        <div className="flex h-full w-full flex-col justify-between divide-y">
+        <div className="flex h-full w-full flex-col justify-between divide-y dark:divide-slate-700">
           {Array.from({ length: 7 }).map((element, index) => (
             <WeatherDayCardSkeleton key={index} />
           ))}
         </div>
       ) : (
-        <div className="flex h-full w-full flex-col justify-between divide-y">
+        <div className="flex h-full w-full flex-col justify-between divide-y dark:divide-slate-700">
           {data.map((element, index) => (
             <WeatherDayCard key={index} data={element} />
           ))}
