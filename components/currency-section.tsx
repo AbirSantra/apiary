@@ -86,7 +86,7 @@ const CurrencyCard = ({
   rate: number;
 }) => {
   return (
-    <div className="flex h-full w-full items-center justify-between text-xs">
+    <div className="flex h-full w-full items-center justify-between py-1 text-xs">
       <div className="flex flex-col">
         <p className="text-sm font-bold">{symbol}</p>
         <p className="text-[0.65rem] font-medium text-slate-500">

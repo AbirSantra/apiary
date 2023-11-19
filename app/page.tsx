@@ -5,7 +5,7 @@ import WeatherSection from "@/components/weather-section";
 
 export default function Home() {
   return (
-    <div className="sm:padding-x sm:padding-y relative mx-auto grid h-[calc(100dvh-4rem)] w-full max-w-[1440px] grid-cols-1 grid-rows-1 gap-4 md:grid-cols-[auto_20rem]">
+    <div className="sm:padding-x sm:padding-y relative mx-auto grid min-h-[calc(100dvh-4rem)] w-full max-w-[1440px] grid-cols-1 grid-rows-1 gap-4 md:grid-cols-[auto_20rem]">
       {/* Main Section */}
       <ScrollArea className="h-full w-full rounded-lg">
         <section className="flex flex-col gap-4">
