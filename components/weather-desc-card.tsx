@@ -84,11 +84,11 @@ const HighlightCard = ({
   unit: string | null;
 }) => {
   return (
-    <div className="flex h-full min-h-[10rem] w-full flex-col items-center justify-between gap-2 rounded-lg bg-slate-50 p-4 dark:border dark:border-slate-700 dark:bg-slate-800">
+    <div className="flex h-full w-full flex-col items-center justify-between gap-2 rounded-lg bg-slate-50 p-4 dark:border dark:border-slate-700 dark:bg-slate-800">
       <p className="self-start text-xs font-medium uppercase text-indigo-500">
         {label}
       </p>
-      <p className="text-3xl font-bold text-slate-500 sm:text-4xl">{value}</p>
+      <p className="text-3xl font-bold text-slate-500 ">{value}</p>
       <p className="self-end text-sm font-medium text-slate-500">{unit}</p>
     </div>
   );
@@ -96,7 +96,7 @@ const HighlightCard = ({
 
 const HighlightCardSkeleton = () => {
   return (
-    <div className="flex h-full min-h-[10rem] w-full animate-pulse flex-col items-center justify-between gap-2 rounded-lg bg-slate-50 p-4 dark:border dark:border-slate-700 dark:bg-slate-800">
+    <div className="flex h-full w-full animate-pulse flex-col items-center justify-between gap-2 rounded-lg bg-slate-50 p-4 dark:border dark:border-slate-700 dark:bg-slate-800">
       <p className="h-4 w-16 self-start rounded-sm bg-slate-200 text-sm font-medium text-indigo-500"></p>
       <p className="h-7 w-16 rounded-md bg-slate-200 text-3xl font-bold text-slate-500 sm:h-9 sm:text-4xl"></p>
       <p className="h-4 w-4 self-end rounded-sm bg-slate-200 text-sm font-medium text-slate-500"></p>
