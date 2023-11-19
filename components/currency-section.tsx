@@ -89,7 +89,7 @@ const CurrencyCard = ({
     <div className="flex h-full w-full items-center justify-between text-xs">
       <div className="flex flex-col">
         <p className="text-sm font-bold">{symbol}</p>
-        <p className="text-slate-500">
+        <p className="text-[0.65rem] font-medium text-slate-500">
           {symbolCurrencyMap[symbol as keyof typeof symbolCurrencyMap]}
         </p>
       </div>
