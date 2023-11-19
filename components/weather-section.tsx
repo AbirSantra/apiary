@@ -29,7 +29,7 @@ const WeatherSection = () => {
         </p>
         <div className="flex flex-col gap-4">
           <div className="flex h-6 w-1/3 animate-pulse items-center gap-2 rounded-md bg-slate-200 text-xs font-medium text-slate-400"></div>
-          <div className="flex h-16 w-2/4 animate-pulse items-start rounded-md bg-slate-200 font-bold text-indigo-500"></div>
+          <div className="flex h-12 w-2/4 animate-pulse items-start rounded-md bg-slate-200 font-bold text-indigo-500"></div>
           <div className="flex items-center justify-between">
             <p className="h-5 w-1/4 animate-pulse rounded-md bg-slate-200 text-sm font-medium text-slate-400"></p>
 
@@ -50,7 +50,7 @@ const WeatherSection = () => {
   }
 
   return (
-    <div className="relative flex w-full flex-col gap-4 rounded-lg bg-white p-6 dark:bg-slate-800">
+    <div className="relative flex w-full flex-col gap-3 rounded-lg bg-white p-6 dark:bg-slate-800">
       <p className="text-sm font-semibold uppercase text-indigo-500">
         Weather Forecast
       </p>
@@ -67,7 +67,7 @@ const WeatherSection = () => {
         </p>
       </div>
       <div className="flex items-start font-bold text-indigo-500">
-        <p className="text-[4rem] leading-none">
+        <p className="text-[3rem] leading-none">
           {weatherData?.main.temp && Math.round(weatherData?.main.temp)}
         </p>
         <p className="text-[2rem] leading-tight">°C</p>
