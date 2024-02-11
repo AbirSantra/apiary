@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Apiary | A MultiHub Platform",
+  title: "Apiary | An API Playground",
   description:
     "Apiary is a platform which provides users with daily News Headlines, Weather Forecast, Currency Exchange Rates, etc.",
 };
