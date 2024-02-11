@@ -1,4 +1,4 @@
-# Apiary - A Daily Hub
+# Apiary - An Apiary Playground
 
 ### Apiary is a platform which provides users with daily News Headlines, Weather Forecast, Currency Exchange Rates, etc.
 
